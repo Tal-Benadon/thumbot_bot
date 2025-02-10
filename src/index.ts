@@ -1,4 +1,6 @@
 // import WebSocket from "ws";
+import dotenv from 'dotenv'
+dotenv.config()
 import { getGateway } from './functions/discord'
 import app from './server/server'
 
