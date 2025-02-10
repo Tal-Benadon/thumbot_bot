@@ -1,8 +1,6 @@
 // import WebSocket from "ws";
-import dotenv from 'dotenv'
-dotenv.config()
-import { getGateway } from './functions/discord'
 import app from './server/server'
+import { getGateway } from './functions/discord'
 
 const PORT = process.env.PORT || 3000
 
