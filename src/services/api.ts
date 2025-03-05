@@ -1,6 +1,8 @@
 
+// for locally run extractor. will change in deployment
 const baseUrl = 'http://127.0.0.1:8000/videos'
 
+// thin post request aimed to "fire and forget" the post request after passing provider checks
 async function videoRequest(url: string, channelId: string) {
 
     try {
@@ -12,14 +14,13 @@ async function videoRequest(url: string, channelId: string) {
         })
 
         if (!response.ok) {
-            console.log("error");
+            console.log("Error accessing videoRequest post endpoint");
         }
 
-        console.log(await response.json());
+
 
     } catch (error) {
-        console.log(error);
-
+        console.log(`An error occured while processing the request: ${error}`);
     }
 
 }
