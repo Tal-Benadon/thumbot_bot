@@ -1,4 +1,7 @@
 import { Client, Events, GatewayIntentBits } from 'discord.js'
+import { handleMessageCreate } from '../services/botEvents'
+
+
 // discord client dev token
 const discordToken = process.env.DISCORD_TOKEN
 
@@ -7,14 +10,11 @@ export const client = new Client({ intents: [GatewayIntentBits.Guilds, GatewayIn
 client.on(Events.ClientReady, readyClient => {
     console.log(`Logged in as ${readyClient.user.tag}`);
 
+
 })
 
 // event listener to when a message is created in the server
-client.on(Events.MessageCreate, (message) => {
-
-    console.log(`${message.content}`);
-
-})
+client.on(Events.MessageCreate, handleMessageCreate)
 
 // login after event listeners are initialized
 client.login(discordToken)
