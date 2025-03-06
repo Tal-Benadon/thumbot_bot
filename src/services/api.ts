@@ -1,6 +1,7 @@
-
-// for locally run extractor. will change in deployment
-const baseUrl = 'http://127.0.0.1:8000/videos'
+// Configure the downloader service URL - support Docker environments
+const downloaderHost = process.env.DOWNLOADER_HOST || '127.0.0.1';
+const downloaderPort = process.env.DOWNLOADER_PORT || '8000';
+const baseUrl = `http://${downloaderHost}:${downloaderPort}/videos`;
 
 // thin post request aimed to "fire and forget" the post request after passing provider checks
 async function videoRequest(url: string, channelId: string) {
