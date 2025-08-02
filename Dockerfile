@@ -17,10 +17,11 @@ RUN npm run build
 
 # Set environment variables
 ENV PORT=3000
+ENV METRICS_PORT=3001
 ENV NODE_ENV=production
 
-# Expose port for the bot's HTTP server
-EXPOSE 3000
+# Expose ports for the bot's HTTP server and metrics
+EXPOSE 3000 3001
 
 # Start the bot
 ENTRYPOINT ["node", "dist/index.js"] 
